@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Okavango Experience — Sam Wolson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: #fff; color: #111; }
+    .project-page { max-width: 900px; margin: 0 auto; padding: 60px 40px 100px; }
+
+    .back-link {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 48px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #111; }
+    .back-link::before { content: '← '; }
+
+    /* ── Slideshow ─────────────────────────────────── */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    .slideshow-track {
+      position: relative;
+      width: 100%;
+      padding-bottom: 62.5%; /* 16:10 feel */
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+    .slide.active { opacity: 1; }
+
+    .slide-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 14px;
+      margin-bottom: 48px;
+    }
+    .slide-btn {
+      background: none;
+      border: 1px solid #ccc;
+      color: #666;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .slide-btn:hover { border-color: #111; color: #111; }
+
+    /* ── Project content ──────────────────────────── */
+    .project-header { margin-bottom: 40px; }
+    .project-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .project-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: #111;
+      margin-bottom: 10px;
+    }
+    .project-roles {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    .project-body { font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 300; color: #555; line-height: 1.9; margin-bottom: 48px; }
+    .project-body p { margin-bottom: 1.2em; }
+
+    .watch-btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      background: #f0f0f0;
+      padding: 12px 28px;
+      text-decoration: none;
+      margin-bottom: 60px;
+      transition: background 0.2s;
+    }
+    .watch-btn:hover { background: #e8e8e8; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 700px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .project-page { padding: 40px 24px 80px; }
+      .project-header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="project-page">
+
+    <a href="new-yorker.html" class="back-link">Visual Storytelling</a>
+
+    <div class="slideshow">
+      <div class="slideshow-track">
+        <img src="images/oka/oka_01.jpg" alt="Okavango 01" class="slide active" />
+        <img src="images/oka/oka_02.jpg" alt="Okavango 02" class="slide" />
+        <img src="images/oka/oka_03.jpg" alt="Okavango 03" class="slide" />
+        <img src="images/oka/oka_04.jpg" alt="Okavango 04" class="slide" />
+        <img src="images/oka/oka_05.jpg" alt="Okavango 05" class="slide" />
+        <img src="images/oka/oka_06.jpg" alt="Okavango 06" class="slide" />
+        <img src="images/oka/oka_07.jpg" alt="Okavango 07" class="slide" />
+        <img src="images/oka/oka_08.jpg" alt="Okavango 08" class="slide" />
+        <img src="images/oka/oka_09.jpg" alt="Okavango 09" class="slide" />
+        <img src="images/oka/oka_10.jpg" alt="Okavango 10" class="slide" />
+        <img src="images/oka/oka_11.jpg" alt="Okavango 11" class="slide" />
+        <img src="images/oka/oka_12.jpg" alt="Okavango 12" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151001-0002.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151001-0014.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151001-0015.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151001-0024.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151002-0022.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151003-0005.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151004-0017.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151005-0001.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151005-0007.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151005-0009.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151006-0004.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151010-0016.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151014-0003.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151014-0006.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151014-0008.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151014-0013.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151014-0025.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151015-0021.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151016-0012.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151016-0019.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151022-0026.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151024-0010.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151024-0020.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151024-0023.jpg" alt="Okavango Delta" class="slide" />
+        <img src="images/okavango-delta/Project-OKA20151027-0011.jpg" alt="Okavango Delta" class="slide" />
+      </div>
+    </div>
+
+    <div class="slide-controls">
+      <button class="slide-btn slide-prev" aria-label="Previous image">&#8592;</button>
+      <button class="slide-btn slide-next" aria-label="Next image">&#8594;</button>
+    </div>
+
+    <div class="project-header">
+      <div class="project-label">National Geographic</div>
+      <h1>The Okavango Experience</h1>
+      <div class="project-roles">Roles: Director · DP · Producer</div>
+    </div>
+
+    <div class="project-body">
+      <p>Over the course of three weeks I had the incredible privilege to join a group of conservationists on an expedition across the Okavango Delta in Botswana. It was an incredibly challenging and rewarding journey that culminated in a 4-part VR series shot for National Geographic.</p>
+      <p>The series follows a team of conservationists on an expedition across the Okavango Delta, one of the last surviving wetland wildernesses on the planet. Best viewed in a VR headset through the National Geographic VR app or YouTube VR app.</p>
+    </div>
+
+    <a href="https://www.nationalgeographic.com/animals/2018/12/okavango-wilderness-360-video-launch/" target="_blank" rel="noopener" class="watch-btn">Watch on National Geographic</a>
+
+    <div class="video-grid">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/LS111RWqblk" title="Africa's Pristine Delta in 360 - Ep. 1 | The Okavango Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/HI7mTIxNotQ" title="Elephant Encounter in 360 - Ep. 2 | The Okavango Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/u1J_TFKu958" title="The Okavango After Dark in 360 - Ep. 3 | The Okavango Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/k0MhKpNYqPE" title="Return from the Okavango in 360 - Ep. 4 | The Okavango Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="bottom-nav">
+    <a href="new-yorker.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Visual Storytelling
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© Sam Wolson · <a href="mailto:Mr.Wolson@gmail.com">Mr.Wolson@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let cur = 0;
+    let timer;
+
+    function show(n) {
+      slides[cur].classList.remove('active');
+      cur = (n + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+    }
+
+    function startTimer() {
+      timer = setInterval(() => show(cur + 1), 4000);
+    }
+
+    document.querySelector('.slide-prev').addEventListener('click', () => {
+      clearInterval(timer);
+      show(cur - 1);
+      startTimer();
+    });
+
+    document.querySelector('.slide-next').addEventListener('click', () => {
+      clearInterval(timer);
+      show(cur + 1);
+      startTimer();
+    });
+
+    startTimer();
+  </script>
+
+</body>
+</html>

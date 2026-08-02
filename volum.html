@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volum — Sam Wolson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: #fff; color: #111; }
+
+    .back-link {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      padding: 28px 48px;
+      transition: color 0.2s;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .back-link:hover { color: #111; }
+    .back-link::before { content: '← '; }
+
+    /* ── Hero ── */
+    .hero-image {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Main content ── */
+    .project-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 60px 100px;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 16px;
+    }
+
+    .project-page h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 300;
+      color: #111;
+      margin-bottom: 8px;
+      line-height: 1.05;
+    }
+
+    .project-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: #888;
+      margin-bottom: 48px;
+    }
+
+    .section-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #111;
+      margin: 56px 0 20px;
+      padding-top: 48px;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .body-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.95;
+    }
+    .body-text p { margin-bottom: 1.4em; }
+
+    /* ── Image grid ── */
+    .image-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 48px 0;
+    }
+    .image-row img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .credits-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid #e8e8e8;
+    }
+    .credits-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: #888;
+      line-height: 2;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .project-page { padding: 48px 24px 80px; }
+      .back-link { padding: 20px 24px; }
+      .image-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="new-yorker.html" class="back-link">Visual Storytelling</a>
+
+  <img src="images/volum/box.jpg" alt="The VOLUM box" class="hero-image" />
+
+  <main class="project-page">
+
+    <div class="section-label">Overview</div>
+    <h1>Volum</h1>
+    <p class="project-subtitle">The VOLUM box</p>
+
+    <div class="section-heading">What is Volum?</div>
+    <div class="body-text">
+      <p>Volum, created by Trevor Snapp, Ben Kreimer, Sam Wolson, and Ben Sax and funded by a J360/Google/Knight Foundation grant, set out to make multi-camera volumetric open source technology, both hardware and software, accessible and field-friendly for journalists, storytellers, and creatives around the world.</p>
+      <p>Given the current state of volumetric camera technology, multiple camera volumetric video capture systems are found in studio and other controlled indoor environments, and require the hiring of a volumetric video production company with proprietary software and workflows. This limits who has access to multiple camera volumetric video technology, and how and where it can be used.</p>
+      <p>A way of capturing the world for virtual reality and augmented reality mediums, volumetric video when captured in artificial, controlled studio environments removes people and other subjects from their personal, comfortable, and natural spaces, and goes against the spirit and fundamental values of journalism, and limits the opportunities for many creatives. In short, while capture studios aim to maximize visual quality at all costs, including directing subjects to stand in certain locations on the capture stage, doing so severely limits the creative possibilities for volumetric video capture.</p>
+    </div>
+
+    <div class="image-row">
+      <img src="images/volum/field.jpg" alt="Volum in the field" />
+      <img src="images/volum/setup.jpeg" alt="Volum setup" />
+    </div>
+
+    <div class="credits-label">Created by</div>
+    <div class="credits-text">Trevor Snapp · Ben Kreimer · Sam Wolson · Ben Sax<br>
+    Funded by J360 / Google / Knight Foundation</div>
+
+  </main>
+
+  <div class="bottom-nav">
+    <a href="new-yorker.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Visual Storytelling
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© Sam Wolson · <a href="mailto:Mr.Wolson@gmail.com">Mr.Wolson@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>

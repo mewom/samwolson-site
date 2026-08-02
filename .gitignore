@@ -1,0 +1,16 @@
+# Squarespace exports
+*.htm
+*_files/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Claude Code
+.claude/
+
+# Editor
+.vscode/
+
+# Original uncompressed images (local backup only)
+images_originals/

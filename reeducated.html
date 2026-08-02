@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reeducated — Sam Wolson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: #fff; color: #111; }
+
+    .back-link {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      text-decoration: none;
+      padding: 28px 48px;
+      transition: color 0.2s;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .back-link:hover { color: #111; }
+    .back-link::before { content: '← '; }
+
+    /* ── Hero two-column ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+    .hero-poster {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-text {
+      padding: 72px 60px 72px 64px;
+    }
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 20px;
+    }
+    .hero-roles {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 32px;
+    }
+    .hero-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #444;
+      line-height: 1.95;
+      margin-bottom: 36px;
+    }
+    .hero-desc em { font-style: italic; font-weight: 400; }
+    .watch-btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #111;
+      padding: 14px 32px;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: background 0.2s;
+    }
+    .watch-btn:hover { background: #333; }
+    .hero-desc2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.9;
+      margin-top: 20px;
+    }
+    .hero-desc2 a { color: #111; }
+
+    /* ── Learn more banner ── */
+    .learn-more {
+      text-align: center;
+      padding: 52px 40px;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .learn-more a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+    .learn-more a:hover { color: #555; }
+
+    /* ── Photo scroll ── */
+    .photo-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 4px;
+      scrollbar-width: none;
+    }
+    .photo-scroll::-webkit-scrollbar { display: none; }
+    .photo-scroll img {
+      height: 520px;
+      width: auto;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+    .photo-credit {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: #aaa;
+      letter-spacing: 0.1em;
+      padding: 12px 24px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    /* ── Content sections ── */
+    .content-section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 60px;
+    }
+    .content-section + .content-section { border-top: 1px solid #e8e8e8; }
+
+    .section-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 36px;
+    }
+
+    /* MEDIA */
+    .press-item {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .press-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .press-outlet {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .press-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* Illustration */
+    .illustration {
+      display: flex;
+      justify-content: center;
+      padding: 48px 0;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .illustration img { max-width: 480px; width: 100%; display: block; }
+
+    /* AWARDS */
+    .award-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.6;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 14px 0;
+    }
+    .award-item:first-child { padding-top: 0; }
+    .award-item:last-child { border-bottom: none; }
+    .award-item a { color: inherit; text-decoration: none; }
+    .award-item a:hover { text-decoration: underline; }
+    .award-jury-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #777;
+      line-height: 1.7;
+      margin-top: 10px;
+      padding-left: 14px;
+      border-left: 2px solid #e0e0e0;
+    }
+
+    /* CREDITS */
+    .credits-block {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 2.1;
+    }
+    .credits-block strong { font-weight: 500; color: #333; }
+    .credits-block p { margin-bottom: 4px; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-poster { position: relative; height: 70vw; }
+      .hero-text { padding: 48px 24px; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .content-section { padding: 48px 24px; }
+      .back-link { padding: 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="new-yorker.html" class="back-link">Visual Storytelling</a>
+
+  <div class="hero">
+    <div class="hero-poster">
+      <img src="images/reeducated/cover.png" alt="Reeducated" />
+    </div>
+    <div class="hero-text">
+      <h1>Reeducated</h1>
+      <p class="hero-roles">Roles: Director · Co-Developer · Producer</p>
+      <p class="hero-desc"><em>Reeducated</em> takes viewers inside one of Xinjiang's "reeducation" camps, guided by the recollections of three men who were imprisoned together at the same facility. Using over a dozen hours of first hand testimony, brush and ink animation and ambisonic sound, the VR film reconstructs the experience of detention and political reeducation. As many as a million people were held in a vast network of "reeducation centers." It is likely the largest mass-internment drive of ethnic and religious minorities since the Second World War. The film was supported by Pulitzer Center on Crisis Reporting, Eyebeam and The Online News Association. The film has shown at 18 film festivals thus far, won top awards from three as well as two ONA awards for the entire multimedia package.</p>
+      <a href="https://www.newyorker.com/news/video-dept/reeducated-film-xinjiang-prisoners-china-virtual-reality" target="_blank" rel="noopener" class="watch-btn">Watch Reeducated</a>
+      <p class="hero-desc2">The film was the second part of the most ambitious immersive interactive feature that <em>The New Yorker</em> has ever made. Part one of the project "<a href="https://www.newyorker.com/news/news-desk/chinas-xinjiang-region-a-surveillance-state-unlike-any-the-world-has-ever-seen" target="_blank" rel="noopener">Inside Xinjiang's Prison State</a>" launched on <em>The New Yorker</em>'s website in early March 2021.</p>
+      <p class="hero-desc2">We worked on this collaboration with The New Yorker for over the past 18 months. Ben Mauk, Matty Huynh and I traveled to Kazakhstan in early 2019 just before the pandemic restricted travel to speak to over a dozen former detainees and victims. Moving between "reeducation camps", and the surveillance state rolled out across Xinjiang the second part of the project explores the scope of China's campaign of persecution against ethnic and religious minorities.</p>
+    </div>
+  </div>
+
+  <div class="learn-more">
+    <a href="https://xrmust.com/xr-magazine/sam-wolson-reeducated/" target="_blank" rel="noopener">Learn More About the Making of <em>Reeducated</em></a>
+  </div>
+
+  <div class="photo-scroll">
+    <img src="images/reeducated/xin_0002.jpg" alt="Xinjiang" />
+    <img src="images/reeducated/xin_0006.jpg" alt="Xinjiang" />
+    <img src="images/reeducated/xin_0009.jpg" alt="Xinjiang" />
+    <img src="images/reeducated/xin_0018.jpeg" alt="Xinjiang" />
+    <img src="images/reeducated/xin_dsc6281.jpeg" alt="Xinjiang" />
+    <img src="images/reeducated/xin_0022.jpeg" alt="Xinjiang" />
+  </div>
+  <div class="photo-credit">Images by Sam Wolson</div>
+
+  <div class="content-section">
+    <div class="section-heading">Media</div>
+    <div class="press-item">
+      <a href="https://foreignpolicy.com/2021/03/16/xinjiang-reeducated-documentary-uyghur-china-vr/" target="_blank" rel="noopener" class="press-outlet">Foreign Policy</a>
+      <p class="press-quote">"Reeducated is as haunting as it is artistically impressive. The film's detailed black and white ink illustrations, hand-drawn by artist Matt Huynh, are intricate and gorgeous, and lace together a poignant, heartbreaking depiction of the narrators' experiences. … <strong>It's impossible to look away.</strong>"</p>
+    </div>
+    <div class="press-item">
+      <a href="https://www.indiewire.com/2021/03/vr-sxsw-film-festivals-1234625370/" target="_blank" rel="noopener" class="press-outlet">IndieWire</a>
+      <p class="press-quote">"Reeducated seems like an obvious frontrunner for the Emmy in Outstanding Interactive Program; the medium injects immediacy into stories of persecution that might otherwise seem tragic but remote."</p>
+    </div>
+    <div class="press-item">
+      <a href="https://variety.com/2021/film/news/xinjiang-reeducated-sxsw-new-yorker-virtual-reality-1234936443/" target="_blank" rel="noopener" class="press-outlet">Variety</a>
+      <p class="press-quote">"Despite extensive news reporting about China's secretive 'reeducation' camps, it is difficult to imagine what it's like for more than a million Uyghur, Kazakh and other minorities detained inside. [Reeducated] aims to put you in their shoes — almost literally — with the help of virtual reality technology."</p>
+    </div>
+    <div class="press-item">
+      <a href="https://www.xrmust.com/xrmagazine/sam-wolson-reeducated/" target="_blank" rel="noopener" class="press-outlet">XR Magazine</a>
+      <p class="press-quote">"This is a work of true journalism — <strong>the kind of journalism that can make a difference</strong> and change you at your core. But Reeducated is not only a deep and shocking reconstruction of a situation that most of us are unaware of. <strong>It is also a beautiful piece of art</strong>, both as an interactive feature and as a VR film."</p>
+    </div>
+  </div>
+
+  <div class="illustration">
+    <img src="images/reeducated/surgery_rendering.gif" alt="Reeducated animation" />
+  </div>
+
+  <div class="content-section">
+    <div class="section-heading">Awards</div>
+    <div class="award-item">
+      <strong>SXSW Virtual Cinema — Special Jury Recognition for Immersive Journalism, 2021</strong>
+      <p class="award-jury-quote">"Reeducated offers a glimpse into a horrifying world obscured from public view. … It's a striking piece of 360 cinema that makes a clear argument for the unique affordances of immersive formats for telling stories, establishing a powerful logic and vocabulary through the use of composition, scale, pace, and perspective."</p>
+    </div>
+    <div class="award-item"><a href="https://peabodyawards.com/award-profile/reeducated/" target="_blank" rel="noopener">Peabody Award — Winner, 2022</a></div>
+    <div class="award-item">Emmy Award — Outstanding Interactive Media, 2022</div>
+    <div class="award-item">ONA Awards — Excellence in Immersive Storytelling, 2021</div>
+    <div class="award-item">ONA Awards — Excellence and Innovation in Visual Digital Storytelling, 2021</div>
+    <div class="award-item">VRHAM! Festival — VRHAMMY Grand Prize, 2021</div>
+    <div class="award-item">New Images Festival — Special Jury Prize, 2021</div>
+    <div class="award-item">Telly Award — Bronze Medal, 2022</div>
+    <div class="award-item">Overseas Press Club Award — Citation, Best International Reporting in Human Rights, 2022</div>
+    <div class="award-item">Deadline Club Award — Digital Innovation Winner, 2022</div>
+    <div class="award-item" style="color:#999;font-size:0.7rem;">Additional Talks: SXSW VR Panel · Duke University</div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-heading">Credits</div>
+    <div class="credits-block">
+      <p><strong>Featuring</strong> Erbaqyt Otarbai, Orynbek Koksebek, Amanzhan Seituly</p>
+      <p><strong>Project Developed by</strong> Ben Mauk, Sam Wolson</p>
+      <p><strong>Director</strong> Sam Wolson · <strong>Artist</strong> Matt Huynh · <strong>Research and Reporting</strong> Ben Mauk</p>
+      <p><strong>Executive Producers</strong> Soo-Jeong Kang, Monica Racic</p>
+      <p><strong>Lead Animator and Technical Supervisor</strong> Nicholas Rubin / Dirt Empire</p>
+      <p><strong>Designer / Composer</strong> Jon Bernson · <strong>Senior Editor</strong> Brian Redondo</p>
+      <p><strong>Producers</strong> Ben Mauk, Sam Wolson, Nicholas Rubin, Matt Huynh</p>
+      <p><strong>Assistant Animator</strong> Oliver Carr · <strong>Lead Compositor</strong> Noel Paul · <strong>VFX Artist</strong> Eddy Moya</p>
+      <p><strong>Story Edit</strong> Ben Mauk, Sam Wolson · <strong>Animation Studio</strong> Dirt Empire</p>
+      <p><strong>Color Grading</strong> Noel Paul · <strong>Ink Bleed</strong> Matvey Rezanov · <strong>Artist Assistant</strong> M. J. Steele</p>
+      <p><strong>English-Language Recording Engineer</strong> Asqat Yerkimbay</p>
+      <p><strong>Kazakh/English Audio</strong> Asqat Yerkimbay, Baubek Sagyndyq</p>
+      <p><strong>English-Language Voice-Over Artists</strong> Nurbek Matzhani, Asqat Yerkimbay, Anonymous</p>
+      <p><strong>Kazakh-Language Recording Engineer</strong> Sam Wolson</p>
+      <p><strong>Transcription and Translations</strong> Dauren Aben, Anonymous</p>
+      <p><strong>Map Locations of Detention Centers</strong> Nathan Ruser, Australian Strategic Policy Institute</p>
+      <p><strong>Fact Checker</strong> Linnea Feldman Emison · <strong>Singing</strong> Erbaqyt Otarbai</p>
+      <p><strong>Special Thanks</strong> Gene Bunin, The Xinjiang Victims Database, Nathan Ruser, Darren Byler, Sonya Teich, Christina Gossmann, Carleen Coulter</p>
+    </div>
+  </div>
+
+  <img src="images/reeducated/bts.jpg" alt="Reeducated — Behind the Scenes" style="width:100%;display:block;" />
+
+  <div class="bottom-nav">
+    <a href="new-yorker.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Visual Storytelling
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© Sam Wolson · <a href="mailto:Mr.Wolson@gmail.com">Mr.Wolson@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>

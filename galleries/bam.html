@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bam — Sam Wolson</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="description" content="Sam Wolson — Documentary and portrait photographer.">
+</head>
+<body>
+<style>body{background:#fff;color:#111;}</style>
+<main class="page-content">
+    <div class="gallery-header">
+      <a href="../new-yorker.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Back
+      </a>
+      <h1>Bam</h1>
+      <p class="gallery-desc">Portraits from Bam, Iran.</p>
+      <p>22 photographs</p>
+    </div>
+
+    <div class="photo-strip">
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-004.JPG" alt="ThisLifeILead PORT 004" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-005.JPG" alt="ThisLifeILead PORT 005" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-006.JPG" alt="ThisLifeILead PORT 006" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-011.JPG" alt="ThisLifeILead PORT 011" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-012.JPG" alt="ThisLifeILead PORT 012" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-016.JPG" alt="ThisLifeILead PORT 016" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-017.JPG" alt="ThisLifeILead PORT 017" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-018.JPG" alt="ThisLifeILead PORT 018" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-020.JPG" alt="ThisLifeILead PORT 020" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-021.JPG" alt="ThisLifeILead PORT 021" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-023.JPG" alt="ThisLifeILead PORT 023" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-025.JPG" alt="ThisLifeILead PORT 025" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-026.JPG" alt="ThisLifeILead PORT 026" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-027.JPG" alt="ThisLifeILead PORT 027" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-029.JPG" alt="ThisLifeILead PORT 029" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-030.JPG" alt="ThisLifeILead PORT 030" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-031.JPG" alt="ThisLifeILead PORT 031" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-032.JPG" alt="ThisLifeILead PORT 032" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-033.JPG" alt="ThisLifeILead PORT 033" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-034.JPG" alt="ThisLifeILead PORT 034" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-035.JPG" alt="ThisLifeILead PORT 035" loading="lazy"></div>
+      <div class="photo-item"><img src="../images/bam/ThisLifeILead-PORT-039.JPG" alt="ThisLifeILead PORT 039" loading="lazy"></div>
+    </div>
+  </main>
+
+  <div class="bottom-nav">
+    <a href="../new-yorker.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2024 Sam Wolson. All rights reserved.
+  </footer>
+  
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="lb-inner">
+      <button id="lb-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <button class="lb-btn" id="lb-prev" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <img id="lb-img" src="" alt="" draggable="false"/>
+      <button class="lb-btn" id="lb-next" aria-label="Next photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div id="lb-caption"></div>
+      <div id="lb-counter"></div>
+    </div>
+  </div>
+
+  <script src="../js/gallery.js"></script>
+  <script src="../js/lightbox.js"></script>
+</body>
+</html>

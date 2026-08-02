@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sam Wolson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { height: 100%; }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Centered text content */
+    .content {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.4);
+      margin: 0 auto 24px;
+    }
+
+    .coming-soon {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+    }
+
+    .email {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .email:hover {
+      color: rgba(255,255,255,0.9);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.08s ease-out, opacity 0.08s ease-out;
+      will-change: transform, opacity;
+    }
+
+    /* pointer-events passthrough on content so links still work */
+    .content { pointer-events: none; }
+    .content a { pointer-events: all; }
+  </style>
+</head>
+<body>
+
+  <!-- Centered overlay content -->
+  <div class="content">
+    <div class="text-block" id="textBlock">
+      <h1 class="name">Sam Wolson</h1>
+      <div class="divider"></div>
+      <p class="coming-soon">Coming Soon</p>
+      <a href="mailto:Mr.Wolson@gmail.com" class="email">Mr.Wolson@gmail.com</a>
+    </div>
+  </div>
+
+
+  <!-- Gaussian Splat renderer -->
+  <script type="module">
+    import * as GaussianSplats3D from '/js/vendor/gaussian-splats-3d.module.js';
+
+    const container = document.createElement('div');
+    container.style.cssText = 'position:fixed;inset:0;z-index:1;';
+    document.body.prepend(container);
+
+    // Tint overlay for color shift effect
+    const tint = document.createElement('div');
+    tint.style.cssText = 'position:fixed;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity 0.6s ease,background 0.6s ease;';
+    document.body.appendChild(tint);
+
+    const viewer = new GaussianSplats3D.Viewer({
+      cameraUp: [0, -1, 0],
+      initialCameraPosition: [0.6664117671534009, -1.3129463551289118, 1.3546606850686045],
+      initialCameraLookAt: [0.7857572606111424, -1.8320123753891455, 0],
+      rootElement: container,
+      selfDrivenMode: true,
+      useBuiltInControls: false,
+      sharedMemoryForWorkers: false,
+    });
+
+    viewer.addSplatScene('splats/Peonies_1_edit.splat', {
+      splatAlphaRemovalThreshold: 5,
+    }).then(() => {
+      viewer.start();
+      window.__viewer = viewer;
+    });
+
+    // ── Camera state ──────────────────────────────────────────
+    const HOME = { px: 0.6664117671534009, py: -1.3129463551289118, pz: 1.3546606850686045, lx: 0.7857572606111424, ly: -1.8320123753891455, lz: 0 };
+
+    // ── Keyframes ─────────────────────────────────────────────
+    const KEYFRAMES = [
+      { px: 0.6664117671534009,  py: -1.3129463551289118, pz: 1.3546606850686045, lx: 0.7857572606111424,  ly: -1.8320123753891455, lz: 0 }, // Home
+      { px: 0.27173540860721146, py: -1.603369057840055,  pz: 0.8782377368057711, lx: 0.5217648218442834,  ly: -0.33839170728857226, lz: 0 }, // Spot 1
+      { px: 0.6056587290639671,  py: -1.5268480229059491, pz: 0.7162930586496674, lx: -0.8461482810296743, ly: -1.4584455293429817,  lz: 0 }, // Spot 2
+      { px: 0.3464118275212948,  py: -1.5329311481211683, pz: 0.7548874274364378, lx: 0.46575732097903616, ly: -2.051997168381402,   lz: 0 }, // Spot 3
+    ];
+
+    const CYCLE_MS      = 7000;  // ms between keyframe advances
+    const TRANSITION_MS = 2500;  // ms for each ease-in-out transition
+
+    // Smootherstep: true S-curve, zero 1st & 2nd derivatives at endpoints
+    function smootherstep(t) {
+      t = Math.max(0, Math.min(1, t));
+      return t * t * t * (t * (t * 6 - 15) + 10);
+    }
+
+    function mix(a, b, t) { return a + (b - a) * t; }
+
+    let spotIndex    = 0;
+    let fromSpot     = { ...KEYFRAMES[0] };
+    let toSpot       = { ...KEYFRAMES[0] };
+    let transStart   = null;
+    let inTransition = false;
+
+    // Current interpolated camera position (updated each frame)
+    const cam = { ...KEYFRAMES[0] };
+
+    function advanceSpot() {
+      spotIndex  = (spotIndex + 1) % KEYFRAMES.length;
+      fromSpot   = { px: cam.px, py: cam.py, pz: cam.pz, lx: cam.lx, ly: cam.ly, lz: cam.lz };
+      toSpot     = { ...KEYFRAMES[spotIndex] };
+      transStart = performance.now();
+      inTransition = true;
+    }
+
+    setInterval(advanceSpot, CYCLE_MS);
+
+    // ── Mouse parallax (smoothed) ─────────────────────────────
+    const PARALLAX = 0.05;
+    let rawNX = 0, rawNY = 0;
+    let smoothNX = 0, smoothNY = 0;
+    document.addEventListener('mousemove', e => {
+      rawNX = (e.clientX / window.innerWidth  - 0.5) * 2;
+      rawNY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    // ── Render loop ───────────────────────────────────────────
+    function animate() {
+      requestAnimationFrame(animate);
+      if (!viewer.camera) return;
+
+      // Update keyframe interpolation
+      if (inTransition) {
+        const t = (performance.now() - transStart) / TRANSITION_MS;
+        const e = smootherstep(t);
+        cam.px = mix(fromSpot.px, toSpot.px, e);
+        cam.py = mix(fromSpot.py, toSpot.py, e);
+        cam.pz = mix(fromSpot.pz, toSpot.pz, e);
+        cam.lx = mix(fromSpot.lx, toSpot.lx, e);
+        cam.ly = mix(fromSpot.ly, toSpot.ly, e);
+        cam.lz = mix(fromSpot.lz, toSpot.lz, e);
+        if (t >= 1) { inTransition = false; Object.assign(cam, toSpot); }
+      }
+
+      // Smooth the parallax so it never snaps
+      smoothNX += (rawNX - smoothNX) * 0.04;
+      smoothNY += (rawNY - smoothNY) * 0.04;
+
+      // Final camera = keyframe position + parallax nudge
+      viewer.camera.position.set(
+        cam.px + smoothNX * PARALLAX,
+        cam.py + smoothNY * PARALLAX * 0.5,
+        cam.pz
+      );
+      viewer.camera.lookAt(
+        cam.lx + smoothNX * PARALLAX * 0.4,
+        cam.ly + smoothNY * PARALLAX * 0.3,
+        cam.lz
+      );
+    }
+    animate();
+  </script>
+
+</body>
+</html>

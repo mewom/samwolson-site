@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Images — Sam Wolson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body { background: #fff; color: #111; }
+
+    .images-intro {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 80px 40px 64px;
+      text-align: center;
+    }
+    .images-intro h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: #111;
+      line-height: 1.05;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      padding: 0 0 120px;
+    }
+
+    .gallery-card {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.4s ease;
+      filter: brightness(0.78);
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.5);
+    }
+
+    .gallery-card-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      pointer-events: none;
+    }
+
+    .gallery-card-overlay h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 1.4vw, 1.4rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .images-intro { padding: 56px 24px 48px; }
+    }
+  </style>
+</head>
+<body>
+<div class="images-intro">
+    <h1>Images</h1>
+  </div>
+
+  <div class="gallery-grid">
+
+    <a href="this-life-i-lead.html" class="gallery-card">
+      <img src="../images/this-life-i-lead/DSC00375.jpg" alt="This Life I Lead" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>This Life I Lead</h2></div>
+    </a>
+
+    <a href="xinjiang-portraits.html" class="gallery-card">
+      <img src="../images/xinjiang-portraits/Xin-Wolson-200107-0002.jpg" alt="Xinjiang Portraits" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Xinjiang Portraits</h2></div>
+    </a>
+
+    <a href="nuba.html" class="gallery-card">
+      <img src="../images/nuba/Nuba-Edit0001.JPG" alt="Nuba" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Nuba</h2></div>
+    </a>
+
+    <a href="portraiture.html" class="gallery-card">
+      <img src="../images/portraiture/TLiL-001.JPG" alt="Portraiture" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Portraiture</h2></div>
+    </a>
+
+    <a href="okavango-delta.html" class="gallery-card">
+      <img src="../images/okavango-delta/Project-OKA20151001-0002.jpg" alt="Okavango Delta" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Okavango Delta</h2></div>
+    </a>
+
+    <a href="moments.html" class="gallery-card">
+      <img src="../images/moments/Single-Single-0001.jpg" alt="Moments" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Moments</h2></div>
+    </a>
+
+    <a href="xin.html" class="gallery-card">
+      <img src="../images/xin/-DSC6285.jpg" alt="Xin" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Xin</h2></div>
+    </a>
+
+    <a href="oakland-protest.html" class="gallery-card">
+      <img src="../images/oakland-protest/Archive-Wolson-BLM-001.jpg" alt="Oakland Protest" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Oakland Protest</h2></div>
+    </a>
+
+    <a href="bam.html" class="gallery-card">
+      <img src="../images/bam/ThisLifeILead-PORT-004.JPG" alt="Bam" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Bam</h2></div>
+    </a>
+
+    <a href="burn.html" class="gallery-card">
+      <img src="../images/burn/Burn-0003.JPG" alt="Burn" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Burn</h2></div>
+    </a>
+
+    <a href="cobalt-mines-in-drc.html" class="gallery-card">
+      <img src="../images/cobalt-mines-in-drc/Apple-dailys-012.jpg" alt="Cobalt Mines in DRC" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Cobalt Mines in DRC</h2></div>
+    </a>
+
+    <a href="diamond-in-the-rough.html" class="gallery-card">
+      <img src="../images/diamond-in-the-rough/Diamond-in-the-rough-ARCHIVE-001.JPG" alt="Diamond In The Rough" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Diamond In The Rough</h2></div>
+    </a>
+
+    <a href="e-waste.html" class="gallery-card">
+      <img src="../images/e-waste/EW-01.JPG" alt="E-Waste" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>E-Waste</h2></div>
+    </a>
+
+    <a href="how-we-move.html" class="gallery-card">
+      <img src="../images/how-we-move/ReflectionInTransit-PORT-003.JPG" alt="How We Move" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>How We Move</h2></div>
+    </a>
+
+    <a href="ivory-burn.html" class="gallery-card">
+      <img src="../images/ivory-burn/Ivory-Archive-001.jpg" alt="Ivory Burn" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Ivory Burn</h2></div>
+    </a>
+
+    <a href="mines.html" class="gallery-card">
+      <img src="../images/mines/Apple-dailys-001.jpg" alt="Mines" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Mines</h2></div>
+    </a>
+
+    <a href="portraits-singles.html" class="gallery-card">
+      <img src="../images/portraits-singles/1577e14e99943b8729ccdd971264325b8e0870be-large.jpg" alt="Portraits + Singles" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Portraits + Singles</h2></div>
+    </a>
+
+    <a href="rey.html" class="gallery-card">
+      <img src="../images/rey/Rey-01.JPG" alt="Rey" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Rey</h2></div>
+    </a>
+
+    <a href="tin-roofs.html" class="gallery-card">
+      <img src="../images/tin-roofs/Marthe-0001.JPG" alt="Tin Roofs" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Tin Roofs</h2></div>
+    </a>
+
+    <a href="tour-du-rwanda.html" class="gallery-card">
+      <img src="../images/tour-du-rwanda/Rwanda-PORT-001.jpg" alt="Tour du Rwanda" loading="lazy" />
+      <div class="gallery-card-overlay"><h2>Tour du Rwanda</h2></div>
+    </a>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a href="../new-yorker.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Visual Storytelling
+    </a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© Sam Wolson · <a href="mailto:Mr.Wolson@gmail.com">Mr.Wolson@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
