@@ -64,36 +64,36 @@
     .view-switch {
       display: flex;
       justify-content: center;
-      gap: 0;
-      padding: 10px 40px 0;
-      position: relative;
+      padding: 16px 40px 4px;
     }
 
     .view-btn {
       background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
+      border: 1px solid #ddd;
       font-family: 'Inter', sans-serif;
-      font-size: 0.6rem;
-      font-weight: 400;
-      letter-spacing: 0.22em;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #bbb;
-      padding: 4px 18px 10px;
+      color: #999;
+      padding: 11px 30px;
       cursor: pointer;
-      transition: color 0.2s;
+      position: relative;
+      transition: color 0.2s, border-color 0.2s;
     }
-    .view-btn.active { color: #111; }
-    .view-btn:hover:not(.active) { color: #555; }
 
-    .view-ink {
-      position: absolute;
-      bottom: 0;
-      height: 2px;
-      background: #111;
-      transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-      pointer-events: none;
+    /* Collapse the shared edge so the pair reads as one control */
+    .view-btn + .view-btn { margin-left: -1px; }
+
+    .view-btn:hover:not(.active) { color: #555; border-color: #bbb; z-index: 1; }
+
+    /* Active is an outlined box, not a filled one */
+    .view-btn.active {
+      color: #111;
+      border-color: #111;
+      z-index: 2;
     }
+
 
     .filter-row {
       display: flex;
@@ -370,7 +370,6 @@
     <div class="view-switch">
       <button class="view-btn active" data-view="timeline">Timeline</button>
       <button class="view-btn" data-view="grid">Grid</button>
-      <span class="view-ink" id="viewInk"></span>
     </div>
     <div class="filter-row">
       <button class="ny-filter-btn active" data-filter="all">All</button>
@@ -1190,12 +1189,6 @@
     const pubFilter  = document.getElementById('pubFilter');
     const pubBtn     = document.getElementById('pubBtn');
     const projGrid   = document.getElementById('proj-grid');
-    const viewInk    = document.getElementById('viewInk');
-
-    function moveInk(btn) {
-      viewInk.style.left  = btn.offsetLeft + 'px';
-      viewInk.style.width = btn.offsetWidth + 'px';
-    }
 
     /* ── View switching ─────────────────────────────── */
     viewBtns.forEach(btn => {
@@ -1204,7 +1197,6 @@
         if (v === currentView) return;
         viewBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        moveInk(btn);
         document.querySelectorAll('.view-pane').forEach(p => p.classList.remove('active'));
         document.getElementById('view-' + v).classList.add('active');
         currentView = v;
@@ -1372,7 +1364,6 @@
     });
 
     /* ── Boot ───────────────────────────────────────── */
-    moveInk(document.querySelector('.view-btn.active'));
     buildGrid();
   })();
   </script>
