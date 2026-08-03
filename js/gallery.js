@@ -20,17 +20,23 @@
     });
   }
 
-  /* ── Redirect vertical wheel to horizontal scroll ─────── */
+  /* ── Horizontal scrolling behaviour ────────────────────────
+     Only applies on wide screens. Below 769px the strip is a
+     vertical stack (see style.css), where hijacking the wheel
+     would break normal page scrolling. Each handler checks the
+     width itself so resizing and device rotation always behave. */
+  const wide = window.matchMedia('(min-width: 769px)');
+
   strip.addEventListener('wheel', function (e) {
+    if (!wide.matches) return;
     e.preventDefault();
     strip.scrollLeft += e.deltaY + e.deltaX;
   }, { passive: false });
 
-  /* ── Click-drag scrolling ──────────────────────────────── */
   let isDown = false, startX, scrollLeft;
 
   strip.addEventListener('mousedown', function (e) {
-    if (e.button !== 0) return;
+    if (!wide.matches || e.button !== 0) return;
     isDown = true;
     strip.classList.add('dragging');
     startX = e.pageX - strip.offsetLeft;
@@ -43,9 +49,18 @@
   });
 
   strip.addEventListener('mousemove', function (e) {
-    if (!isDown) return;
+    if (!isDown || !wide.matches) return;
     e.preventDefault();
     const x = e.pageX - strip.offsetLeft;
     strip.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+
+  /* Dropping to stacked layout leaves a stale horizontal offset */
+  wide.addEventListener('change', function () {
+    if (!wide.matches) {
+      isDown = false;
+      strip.classList.remove('dragging');
+      strip.scrollLeft = 0;
+    }
   });
 })();
