@@ -225,6 +225,33 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   line-height: 1.7;
 }
 
+/* Where a project was published — sits under the photo count */
+.gallery-header .gallery-press {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-top: 14px;
+}
+.gallery-header .gallery-press a {
+  color: #666;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1px;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.gallery-header .gallery-press a:hover {
+  color: #111;
+  border-color: #111;
+}
+/* Whitespace around the separator in the markup gives the line
+   somewhere to wrap; the margin just fine-tunes the gap. */
+.gallery-header .gallery-press .sep {
+  color: #ddd;
+  margin: 0 3px;
+}
+
 /* ── Photo Horizontal Strip (gallery pages) ───────────────── */
 .photo-strip {
   display: flex;

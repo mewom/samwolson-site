@@ -21,17 +21,17 @@
   }
 
   /* ── Horizontal scrolling behaviour ────────────────────────
-     Only applies on wide screens. Below 769px the strip is a
-     vertical stack (see style.css), where hijacking the wheel
-     would break normal page scrolling. Each handler checks the
-     width itself so resizing and device rotation always behave. */
-  const wide = window.matchMedia('(min-width: 769px)');
+     The strip deliberately has NO wheel handler. Vertical wheel
+     and trackpad gestures are left alone so they scroll the page
+     instead of dragging the photos sideways. Horizontal intent —
+     a two-finger sideways swipe, shift+wheel, or the click-drag
+     below — scrolls the strip through the browser's own
+     overflow-x handling.
 
-  strip.addEventListener('wheel', function (e) {
-    if (!wide.matches) return;
-    e.preventDefault();
-    strip.scrollLeft += e.deltaY + e.deltaX;
-  }, { passive: false });
+     Drag applies on wide screens only; below 769px the strip is a
+     vertical stack (see style.css). The handlers check the width
+     themselves so resizing and rotation always behave. */
+  const wide = window.matchMedia('(min-width: 769px)');
 
   let isDown = false, startX, scrollLeft;
 
