@@ -28,6 +28,64 @@
       line-height: 1.95;
       margin-bottom: 28px;
     }
+    /* ── Expandable full bio ──────────────────────── */
+    .bio-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: -12px 0 26px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #999;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .bio-more-btn:hover { color: #111; }
+
+    .bio-more-btn .chev {
+      width: 9px;
+      height: 9px;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bio-more-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+    /* Animates on max-height; the value only needs to exceed the
+       real height, which is why it is generous. */
+    .bio-full {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s ease,
+                  margin-bottom 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 0;
+    }
+    .bio-full.open {
+      max-height: 4000px;
+      opacity: 1;
+      margin-bottom: 28px;
+    }
+    .bio-full p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: #777;
+      line-height: 1.95;
+      margin-bottom: 17px;
+    }
+    .bio-full p:last-child { margin-bottom: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bio-full { transition: none; }
+      .bio-more-btn .chev { transition: none; }
+    }
+
     .bio-contact { display: flex; gap: 24px; flex-wrap: wrap; }
     .bio-contact a {
       font-family: 'Inter', sans-serif;
@@ -361,6 +419,35 @@
   <div class="ny-intro" id="bio">
     <h1 class="bio-name">Sam Wolson</h1>
     <p class="bio-text">Sam Wolson is a visual storyteller whose works at the intersection of documentary and emerging technology. He currently serves as the Visual Features Editor at The New Yorker, an advisor at Agog, and a director, photographer, and journalist. His projects have premiered at major festivals including Sundance, Venice, and SXSW. Notable credits include co-directing We Who Remain, the first character-driven VR film shot in an active warzone. His immersive project Reeducated earned both a Peabody Award and an Emmy, and his interactive documentary Cleared by Fire won a second Peabody Award in 2026.</p>
+    <button class="bio-more-btn" id="bioMoreBtn" aria-expanded="false" aria-controls="bioFull">
+      <span class="bio-more-label">Read full bio</span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </button>
+
+    <div class="bio-full" id="bioFull" hidden>
+      <p>Sam Wolson is a visual storyteller and director working at the intersection of documentary journalism and immersive technology. Currently serving as Visual Features Editor at The New Yorker and an advisor at Agog, Wolson has spent nearly two decades documenting global events, first as an international photojournalist working and living across sub-Saharan and North Africa, and increasingly as a pioneer of immersive and interactive narrative forms.</p>
+
+      <p>Wolson's early career took him across the world as a documentary photographer and filmmaker for editorial outlets including the San Francisco Chronicle, Newsweek, and The New York Times. He attended the prestigious Eddie Adams Workshop early in his career, and was later a member of the French photo agency VU'. This foundation in traditional photojournalism would shape his later turn toward experimental storytelling.</p>
+
+      <p>In 2017, Wolson co-directed "We Who Remain," a VR film. Shot in Sudan's Nuba Mountains during an active conflict, it was the first character-driven narrative VR experience filmed in a warzone. The project premiered at SXSW and won Best VR Film at the Seattle International Film Festival, establishing Wolson's reputation for executing technically ambitious work in challenging circumstances. It was a collaboration between The New York Times, AJ+, and ARTE, and with VR pioneer Nonny De La Peña. That same year, he also contributed several projects to The New York Times' pioneering Daily 360 project.</p>
+
+      <p>In 2018, Wolson worked with National Geographic on "The Okavango Experience," a four-part VR series following conservationists on an expedition across the Okavango Delta in Botswana.</p>
+
+      <p>In 2019, Wolson was part of a team that received a National Geographic Society grant for "Documenting Human Migrations," creating educational materials that became part of a pioneering climate justice curriculum used in schools across Scotland. That same year, he received a Knight Foundation grant for immersive journalism exploring field-deployable volumetric video capture technology techniques that would later be deployed during the Sudanese revolution.</p>
+
+      <p>In 2020, Wolson co-directed an experimental documentary about Fukushima that premiered at Sundance. That same year, he began work on "Reeducated," a VR film about Xinjiang's detention camps for Uyghurs and other predominantly Muslim minorities. Funded by the Knight Foundation, the Pulitzer Center, and The New Yorker, the project combined firsthand testimony and immersive cinematography to offer viewers an unprecedented window into a system deliberately obscured from international scrutiny.</p>
+
+      <p>"Reeducated" premiered in 2021 to widespread critical acclaim. Recognition followed from across the industry: a Special Jury Prize at New Images Festival, the VRHAMMY Grand Prize, and recognition from the ONA Awards for Excellence in Immersive Storytelling. In 2022, the film earned both a Peabody Award and an Emmy for Outstanding Interactive Media, as well as accolades from the Overseas Press Club and the Deadline Club.</p>
+
+      <p>Wolson joined The New Yorker's staff in 2023 as Visual Features Editor. In 2024, he extended his reach into audio-visual storytelling, co-creating the interactive component of "In the Dark: Season 3," an investigative audio documentary series. The series won the Pulitzer Prize for Audio Reporting, with Wolson's immersive web experience, Cleared by Fire, which went on to win his second Peabody Award.</p>
+
+      <p>At The New Yorker, Wolson has continued to push the boundaries of interactive storytelling, introducing cutting-edge tools and techniques to the 100-year-old institution for ongoing documentary projects.</p>
+
+      <p>Wolson grew up on a flower farm in suburban Detroit and currently resides in New York City.</p>
+    </div>
+
     <div class="bio-contact">
       <a href="mailto:Mr.Wolson@gmail.com">Mr.Wolson@gmail.com</a>
     </div>
@@ -1189,6 +1276,21 @@
     const pubFilter  = document.getElementById('pubFilter');
     const pubBtn     = document.getElementById('pubBtn');
     const projGrid   = document.getElementById('proj-grid');
+
+    /* ── Full bio toggle ────────────────────────────── */
+    const bioMoreBtn = document.getElementById('bioMoreBtn');
+    const bioFull    = document.getElementById('bioFull');
+    const bioLabel   = bioMoreBtn.querySelector('.bio-more-label');
+
+    /* `hidden` keeps it collapsed for anyone without JS/CSS; once we
+       know scripting works, the class handles it so it can animate. */
+    bioFull.hidden = false;
+
+    bioMoreBtn.addEventListener('click', () => {
+      const open = bioFull.classList.toggle('open');
+      bioMoreBtn.setAttribute('aria-expanded', String(open));
+      bioLabel.textContent = open ? 'Close' : 'Read full bio';
+    });
 
     /* ── View switching ─────────────────────────────── */
     viewBtns.forEach(btn => {
